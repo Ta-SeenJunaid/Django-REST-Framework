@@ -1,7 +1,5 @@
 # Django:
-*.log
-*/db.sqlite3
-
+/Django_Rest/backend/db.sqlite3
 
 #ide & venv:
 .idea
