@@ -1,5 +1,14 @@
+import json
+
+from django.forms import model_to_dict
 from django.http import JsonResponse
+
+from products.models import Product
 
 
 def api_home(request, *args, **kwargs):
-    return JsonResponse({"message": "Hello from Django!!!!!"})
+    model_data = Product.objects.all().order_by("?").first()
+    data = {}
+    if model_data:
+        data = model_to_dict(model_data)
+    return JsonResponse(data)
